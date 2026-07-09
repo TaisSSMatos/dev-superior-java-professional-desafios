@@ -23,10 +23,13 @@ public class Atividade {
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
-    @OneToMany(mappedBy = "atividades")
+    @ManyToMany
+    @JoinTable(name = "tb_atividade_participante",
+            joinColumns = @JoinColumn(name = "atividade_id"),
+            inverseJoinColumns = @JoinColumn(name = "participante_id"))
     private Set<Participante> participantes = new HashSet<>();
 
-    @OneToMany(mappedBy = "atividade")
+    @OneToMany(mappedBy = "atividade", cascade = CascadeType.ALL)
     private Set<Bloco> blocos = new HashSet<>();
 
     public Atividade() {
@@ -66,10 +69,6 @@ public class Atividade {
 
     public Double getPreco() {
         return preco;
-    }
-
-    public void setParticipantes(Set<Participante> participantes) {
-        this.participantes = participantes;
     }
 
     public void setPreco(Double preco) {
