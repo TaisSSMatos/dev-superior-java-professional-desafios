@@ -52,7 +52,7 @@ Certifique-se de ter o Java Development Kit (JDK) 17 ou superior e o Maven insta
 
 1.  **Clone o repositório:**
     ```bash
-    git clone <URL_DO_SEU_REPOSITORIO>
+    git clone https://github.com/TaisSSMatos/dev-superior-java-professional-desafios.git
     cd evento
     ```
 
